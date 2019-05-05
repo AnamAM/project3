@@ -10,6 +10,10 @@ var productSchema = new Schema({
     },
     quantity: {
         type: Number
+    },
+    isActive: {
+        type: Boolean,
+        required: true
     }
 });
 
