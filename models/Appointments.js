@@ -2,18 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var appointmentSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address."]
-    },
     vehicleYear: {
         type: Number,
     },
@@ -32,7 +20,8 @@ var appointmentSchema = new Schema({
         required: true
     },
     time: {
-        type: Timestamp,
+        // needs to be converted by using moment.js
+        type: String,
         required: true
     },
     date: {
@@ -43,6 +32,10 @@ var appointmentSchema = new Schema({
     serviceId: {
         type: Schema.Types.ObjectId,
         ref: "Services"
+    },
+    customerId: {
+        type: Schema.Types.ObjectId,
+        ref: "Customer"
     }
 });
 
