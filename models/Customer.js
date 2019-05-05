@@ -3,17 +3,24 @@ const Schema = mongoose.Schema;
 
 var customerSchema = new Schema({
     firstName: {
-        type: String
+        type: String,
+        required: true
     },
     lastName: {
-        type: Double
+        type: String,
+        required: true
     },
     email: {
         type: String,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address."]
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address."],
+        required: true
     },
     phoneNum: {
         type: String
+    },
+    address: {
+        type: String,
+        required: true
     }
 });
 
