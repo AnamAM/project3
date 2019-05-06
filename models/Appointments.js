@@ -33,6 +33,7 @@ var appointmentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Services"
     },
+    // allows us to populate appointment with an associated customer
     customerId: {
         type: Schema.Types.ObjectId,
         ref: "Customer"
