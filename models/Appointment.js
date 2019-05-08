@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -25,7 +26,7 @@ var appointmentSchema = new Schema({
         required: true
     },
     date: {
-        type: Date,
+        type: String,
         default: Date.now
     },
     // allows us to populate appointment with an associated service
