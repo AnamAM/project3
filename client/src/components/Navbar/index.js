@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -26,7 +27,7 @@ function Navbar() {
               Book Services
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item right-side">
             <Link
               to="/"
               className={ 

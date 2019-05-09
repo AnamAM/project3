@@ -8,7 +8,7 @@ import servicesAPI from '../../utils/servicesAPI'
 // import { List, ListItem } from "../components/List";
 import { Input, DropDown, FormBtn } from "../../components/Form";
 import M from 'materialize-css';
-import { Col, Row } from "../Grid";
+import { Container, Col, Row } from "../Grid";
 
 class Booking extends Component {
   state = {
@@ -16,11 +16,9 @@ class Booking extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    vehicleYear: "",
     vehicleMake: "",
     vehicleColor: "",
     vehicleModel: "",
-    licenseNum: "",
     date: "",
     time: "",
     services: [],
@@ -32,8 +30,8 @@ class Booking extends Component {
     servicesAPI.getServices();
 
     M.FormSelect.init(document.querySelectorAll('select'));
-    M.Datepicker.init(document.querySelectorAll('elems', 'option'));
-    M.Timepicker.init(document.querySelectorAll('elems', 'option'));
+    // M.Datepicker.init(document.querySelectorAll('elems', 'option'));
+    // M.Timepicker.init(document.querySelectorAll('elems', 'option'));
   }
 
   loadAppointment = () => {
@@ -73,15 +71,23 @@ class Booking extends Component {
     });
   };
 
+  handleInputChange2 = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.vehicleMake && this.state.vehicleModel) {
       appointmentAPI.saveAppointment({
-        vehicleYear: this.state.vehicleYear,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
         vehicleMake: this.state.vehicleMake,
         vehicleColor: this.state.vehicleColor,
         vehicleModel: this.state.vehicleModel,
-        licenseNum: this.state.licenseNum,
         date: this.state.date,
         time: this.state.time
       })
@@ -90,7 +96,7 @@ class Booking extends Component {
     }
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit2 = event => {
     event.preventDefault();
     if (this.state.name) {
       servicesAPI.saveService({
@@ -104,10 +110,11 @@ class Booking extends Component {
   render() {
     return (
       <div>
-        <h1>Book a Service!</h1>
         <form>
+        <Container fluid>
         <Row>
         <Col size="md-12">
+        <h1>Book a Service!</h1>
 
         <Row>
         <Col size="sm-4">
@@ -115,7 +122,7 @@ class Booking extends Component {
             value={this.state.firstName}
             onChange={this.handleInputChange}
             name="firstName"
-            placeholder="First Name"
+            placeholder="First Name *"
           />
           </Col>
           <Col size="sm-4">
@@ -123,7 +130,7 @@ class Booking extends Component {
             value={this.state.lastName}
             onChange={this.handleInputChange}
             name="lastName"
-            placeholder="Last Name"
+            placeholder="Last Name *"
           />
           </Col>
           </Row>
@@ -134,7 +141,7 @@ class Booking extends Component {
             value={this.state.email}
             onChange={this.handleInputChange}
             name="email"
-            placeholder="Email"
+            placeholder="Email *"
           />
           </Col>
           </Row>
@@ -143,6 +150,8 @@ class Booking extends Component {
           <Col size="md-6">
           <DropDown
             value={this.state.name}
+            onChange={this.handleInputChange2}
+            name="name"
           />
           </Col>
           </Row>
@@ -153,7 +162,7 @@ class Booking extends Component {
             value={this.state.vehicleMake}
             onChange={this.handleInputChange}
             name="vehicleMake"
-            placeholder="Vehicle Make"
+            placeholder="Vehicle Make *"
           />
           </Col>
           <Col size="sm-4">
@@ -161,7 +170,7 @@ class Booking extends Component {
             value={this.state.vehicleModel}
             onChange={this.handleInputChange}
             name="vehicleModel"
-            placeholder="Vehicle Model"
+            placeholder="Vehicle Model *"
           />
           </Col>
           <Col size="sm-4">
@@ -169,7 +178,7 @@ class Booking extends Component {
             value={this.state.vehicleColor}
             onChange={this.handleInputChange}
             name="vehicleColor"
-            placeholder="Vehicle Color"
+            placeholder="Vehicle Color *"
           />
           </Col>
           </Row>
@@ -180,7 +189,7 @@ class Booking extends Component {
             value={this.state.date}
             onChange={this.handleInputChange}
             name="date"
-            placeholder="Date"
+            placeholder="Date *"
           />
           </Col>
           <Col size="sm-4">
@@ -188,23 +197,22 @@ class Booking extends Component {
             value={this.state.time}
             onChange={this.handleInputChange}
             name="time"
-            placeholder="Time"
+            placeholder="Time *"
           />
           </Col>
           </Row>
           <Col size="md-6">
             
           <FormBtn
-            // disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
-            onClick={this.handleFormSubmit}
+            disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
+            onClick={this.handleFormSubmit && this.handleFormSubmit2}
           >
             Schedule Service
               </FormBtn>
           </Col>
           </Col>
           </Row>
-
-
+          </Container>
         </form>
       </div>
     );

@@ -21,7 +21,7 @@ export function DropDown() {
                 <option value="4">Caliper Painting</option>
                 <option value="5">Tire Lettering & Stickers</option>
             </select>
-            <label>Select Service(s)</label>
+            <label>Select Service(s) *</label>
         </div>
     )
 }
