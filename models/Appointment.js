@@ -2,8 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var appointmentSchema = new Schema({
-    vehicleYear: {
-        type: Number,
+    firstName: {
+        type: String,
+    },
+    lastName: {
+        type: String,
+    },
+    email: {
+        type: String,
     },
     vehicleMake: {
         type: String,
@@ -15,24 +21,20 @@ var appointmentSchema = new Schema({
     vehicleColor: {
         type: String,
     },
-    licenseNum: {
+    date: {
         type: String,
-        required: true
+        default: Date.now
     },
     time: {
         // needs to be converted by using moment.js
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
     // allows us to populate appointment with an associated service
-    serviceId: {
+    serviceId: [{
         type: Schema.Types.ObjectId,
         ref: "Services"
-    },
+    }],
     // allows us to populate appointment with an associated customer
     customerId: {
         type: Schema.Types.ObjectId,

@@ -1,17 +1,10 @@
 const router = require("express").Router();
-const appointmentRoute = require("./appointment");
-const customerRoute = require("./customer");
-const invoiceRoute = require("./invoices");
-const orderItemRoute = require("./orderItems");
-const productRoute = require("./products");
 const serviceRoute = require("./services");
+const appointmentRoute = require("./appointment");
 
-// Oas routes
-router.use("/appointment", appointmentRoute);
-router.use("/customer", customerRoute);
-router.use("/invoices", invoiceRoute);
-router.use("/orderItems", orderItemRoute);
-router.use("/products", productRoute);
+
+// Book routes
 router.use("/services", serviceRoute);
+router.use("/appointment", appointmentRoute);
 
 module.exports = router;

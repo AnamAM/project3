@@ -3,30 +3,32 @@ const db = require("../models");
 // Defining methods for the appointmentController
 module.exports = {
   findAll: function(req, res) {
+    // console.log("HELLO")
     db.Appointment
       .find(req.query)
-      .sort({ date: -1 })
+      .populate("serviceId")
       .then(dbAppointment => res.json(dbAppointment))
       .catch(err => res.status(422).json(err));
+      // console.log(req);
   },
   findById: function(req, res) {
+    // console.log("hi");
     db.Appointment
       .findById(req.params.id)
+      .populate("serviceId")
       .then(dbAppointment => res.json(dbAppointment))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    // console.log(req.body)
     db.Appointment
       .create(req.body)
-      .then(dbAppointment => res.json(dbAppointment))
-      .catch(err => res.status(422).json(err));
+      .then(dbAppointment => {res.json(dbAppointment)
+      })
+      .catch(err => {res.status(422) 
+      console.log()});
   },
-  update: function(req, res) {
-    db.Appointment
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbAppointment => res.json(dbAppointment))
-      .catch(err => res.status(422).json(err));
-  },
+ 
   joining: function(req, res) {
     // Create a new service and pass the req.body to the entry
     db.Services.create(req.body)
@@ -40,6 +42,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
+    console.log("deleted from appointment")
     db.Appointment
       .findById({ _id: req.params.id })
       .then(dbAppointment => dbAppointment.remove())
