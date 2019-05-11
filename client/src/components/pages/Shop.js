@@ -1,25 +1,50 @@
 import React from "react";
 import Card from "../Card";
+import { Container, Col, Row } from "../Grid";
+import products from "../../products.json"
+import image1 from "../../images/product1.png"
+import image2 from "../../images/product2.png"
+import image3 from "../../images/product3.png"
+import image4 from "../../images/product4.png"
+
 
 function Shop() {
   return (
     <div>
+    <Container fluid>
       <h1>Shop Our Products</h1>
-      <Card style={{ width: "20%", height: "40vh" }}/>
-      <Card style={{ width: "20%", height: "40vh" }}/>
-      <Card style={{ width: "20%", height: "40vh" }}/>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-        varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-        Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-        imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum
-        ligula in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare
-        elit. Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-        consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus.
-      </p>
-    </div>
+    <Row>
+      <Col size="md-3">
+      <Card 
+        name={products[0].name}
+        image={image1}
+        description={products[0].description}
+      />
+      </Col>
+      <Col size="md-3">
+      <Card 
+        name={products[1].name}
+        image={image2}
+        description={products[1].description}
+      />
+      </Col>
+      <Col size="md-3">
+      <Card 
+        name={products[2].name}
+        image={image3}
+        description={products[2].description}
+      />
+      </Col>
+      <Col size="md-3">
+      <Card 
+        name={products[3].name}
+        image={image4}
+        description={products[3].description}
+      />
+      </Col>
+    </Row>
+      </Container>
+      </div>
   );
 }
-
 export default Shop;

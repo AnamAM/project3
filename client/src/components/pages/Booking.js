@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import appointmentAPI from "../../utils/appointmentAPI";
 import servicesAPI from '../../utils/servicesAPI'
 // import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
 import { Input, DropDown, FormBtn } from "../../components/Form";
 import M from 'materialize-css';
@@ -30,6 +29,7 @@ class Booking extends Component {
     servicesAPI.getServices();
 
     M.FormSelect.init(document.querySelectorAll('select'));
+    // M.FormSelect.init(document.getElementsByClassName('service-dropdown'));
     // M.Datepicker.init(document.querySelectorAll('elems', 'option'));
     // M.Timepicker.init(document.querySelectorAll('elems', 'option'));
   }
