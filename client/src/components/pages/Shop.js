@@ -1,9 +1,13 @@
 import React from "react";
+import Card from "../Card";
 
 function Shop() {
   return (
     <div>
       <h1>Shop Our Products</h1>
+      <Card style={{ width: "20%", height: "40vh" }}/>
+      <Card style={{ width: "20%", height: "40vh" }}/>
+      <Card style={{ width: "20%", height: "40vh" }}/>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
         varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.

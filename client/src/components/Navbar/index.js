@@ -11,15 +11,15 @@ function Navbar() {
       </Link> */}
         <ul className="navbar-nav" id="nav-mobile" >
         {/* this className could go in this ul tag above... className="right hide-on-med-and-down" */}
-        <li className="nav-item">
-            <Link
+        <li className="nav-item nav">
+            <Link 
               to="/"
-              className={window.location.pathname === "/home" ? "nav-link active" : "nav-link light"}
+              className= {window.location.pathname === "/home" ? "nav-link active" : "nav-link light"} 
               >
               OAS
             </Link>
           </li>
-        <li className="nav-item">
+        <li className="nav-item nav">
             <Link
               to="/booking"
               className={window.location.pathname === "/booking" ? "nav-link active" : "nav-link"}
@@ -27,7 +27,7 @@ function Navbar() {
               Book Services
             </Link>
           </li>
-          <li className="nav-item right-side">
+          <li className="nav-item nav right-side">
             <Link
               to="/"
               className={ 
@@ -39,7 +39,7 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item nav">
             <Link
               to="/shop"
               className={window.location.pathname === "/shop" ? "nav-link active" : "nav-link"}
@@ -47,7 +47,7 @@ function Navbar() {
               Shop
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item nav">
             <Link
               to="/contact"
               className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
@@ -55,7 +55,7 @@ function Navbar() {
               Contact
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item nav">
             <Link
               to="/cart"
               className={window.location.pathname === "/cart" ? "nav-link active" : "nav-link"}
@@ -63,6 +63,7 @@ function Navbar() {
               Cart
             </Link>
           </li>
+         <i className="material-icons cart">shopping_cart</i>
         </ul>
       </div>
     </nav>
