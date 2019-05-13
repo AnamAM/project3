@@ -34,40 +34,36 @@ class Contact extends Component {
     return (
       <div>
       <Container fluid>
-        <h1>Contact Us!</h1>
-        <label style={{ fontSize: "16pt" }}>Name:</label>
+        <h1 style={{textAlign: "center", color: "white"}}>Contact Us!</h1>
         <Input style={{ width: "30%" }}
           type="text"
-          // placeholder="Name"
+          placeholder="Name"
           name="name"
           value={this.state.name}
           onChange={this.handleInputChange}
         />
-        <label style={{ fontSize: "16pt" }}>Email:</label>
         <Input style={{ width: "30%" }}
           type="text"
-          // placeholder="Email"
+          placeholder="Email"
           name="email"
           value={this.state.email}
           onChange={this.handleInputChange}
         />
-        <label style={{ fontSize: "16pt" }}>Subject:</label>
         <Input style={{ width: "30%" }}
           type="text"
-          // placeholder="Subject"
+          placeholder="Subject"
           name="Subject"
           value={this.state.subject}
           onChange={this.handleInputChange}
         />
-        <label style={{ fontSize: "16pt" }}>Message:</label>
         <Input style={{ width: "30%" }}
           type="text"
-          // placeholder="Message"
+          placeholder="Message"
           name="message"
           value={this.state.message}
           onChange={this.handleInputChange}
         />
-        <button onClick={this.handleFormSubmit}>Submit</button>
+        <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Submit</button>
         </Container>
       </div>
     );

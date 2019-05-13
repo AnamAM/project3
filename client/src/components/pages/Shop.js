@@ -12,7 +12,7 @@ function Shop() {
   return (
     <div>
     <Container fluid>
-      <h1>Shop Our Products</h1>
+      <h1 style={{ textAlign: "center", color: "white"}}>Shop Our Products</h1>
     <Row>
       <Col size="md-3">
       <Card 

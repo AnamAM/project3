@@ -6,7 +6,7 @@ export function Input(props) {
         // <div className="input-field col s12"> 
         // <div className="input-field col s12 m6 l6">
         <div >
-            <input  style={{color:'white'}} className="datepicker" type="text" {...props} />
+            <input  style={{ color: "white"}} className="datepicker" type="text" {...props} />
         </div>
     )
 }
