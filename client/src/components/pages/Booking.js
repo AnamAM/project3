@@ -3,10 +3,11 @@ import React, { Component } from "react";
 // import Jumbotron from "../components/Jumbotron";
 import appointmentAPI from "../../utils/appointmentAPI";
 import servicesAPI from '../../utils/servicesAPI'
+
 // import { Link } from "react-router-dom";
 // import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
-import { Input, DropDown, FormBtn } from "../../components/Form";
+import { Input,FormBtn } from "../../components/Form";
 import M from 'materialize-css';
 import { Container, Col, Row } from "../Grid";
 
@@ -21,62 +22,71 @@ class Booking extends Component {
     vehicleModel: "",
     date: "",
     time: "",
+    currentServiceId: "",
     services: [],
     name: ""
   };
 
   componentDidMount() {
     this.loadAppointment();
-    servicesAPI.getServices();
+    // this.getServices();
+    this.loadServices();
 
-    M.FormSelect.init(document.querySelectorAll('select'));
-    // M.Datepicker.init(document.querySelectorAll('elems', 'option'));
-    // M.Timepicker.init(document.querySelectorAll('elems', 'option'));
+    // M.FormSelect.init(document.querySelectorAll('select'));
   }
 
   loadAppointment = () => {
     appointmentAPI.getAppointments()
-      .then(res =>
-        this.setState({ appointment: res.data, firstName: "", lastName: "", email: "", vehicleMake: "", vehicleColor: "", vehicleModel: "", date: "", time: "" })
+    
+    .then(res => 
+      this.setState({ appointment: res.data, firstName: "", lastName: "", email: "", vehicleMake: "", vehicleColor: "", vehicleModel: "", date: "", time: "" })
       )
       .catch(err => console.log(err));
-    console.log(this.state.appointment);
+      // console.log(this.state.appointment);
   };
-
-  loadServices = () => {
+  
+  // loadAppointment = () => {
+  // appointmentAPI.getAppointments()
+  // .then( res => console.log(res))
+  // .catch(err => console.log(err))
+  //   }
+  
+    loadServices = () => {
     servicesAPI.getServices()
-      .then(res =>
-        this.setState({ services: res.data, name: "" })
-      )
+    .then(res => {
+      this.setState({ services: res.data, },()=>{
+        M.FormSelect.init(document.querySelectorAll('select'));
+      })
+    }
+    )
       .catch(err => console.log(err));
-    console.log(this.state.appointment);
+      console.log(this.state.services);
   }
-
-  deleteAppointment = id => {
-    appointmentAPI.deleteAppointment(id)
-      .then(res => this.loadAppointment())
-      .catch(err => console.log(err));
-  };
-
-  deleteServices = id => {
-    servicesAPI.deleteServices(id)
-      .then(res => this.loadServices())
-      .catch(err => console.log(err));
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
+    // console.log(event.target.name);
   };
+  // handleDropChange = (event) => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   },()=>{
+  //     console.log(this.state.services)
+  //   });
+  //   console.log(event.target.value)
+  
+  // }
 
-  handleInputChange2 = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+  selectService() {
+    // this.setState(this.refs.serviceSelector.value);
+    this.setState({currentServiceId:this.refs.serviceSelector.value})
+    console.log(this.refs.serviceSelector.value);
+  }
+
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -88,6 +98,7 @@ class Booking extends Component {
         vehicleMake: this.state.vehicleMake,
         vehicleColor: this.state.vehicleColor,
         vehicleModel: this.state.vehicleModel,
+        services: this.state.currentServiceId,
         date: this.state.date,
         time: this.state.time
       })
@@ -95,19 +106,20 @@ class Booking extends Component {
         .catch(err => console.log(err));
     }
   };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (this.state.name) {
+  //     servicesAPI.getServices()
+  //       .then(res => this.loadServices())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
-  handleFormSubmit2 = event => {
-    event.preventDefault();
-    if (this.state.name) {
-      servicesAPI.saveService({
-        name: this.state.name
-      })
-        .then(res => this.loadServices())
-        .catch(err => console.log(err));
-    }
-  };
 
   render() {
+    var options = this.state.services.map(service => {
+      return <option key={`option_${service._id}`}  value={service._id}>{service.name}</option>
+    })
     return (
       <div>
         <form>
@@ -148,11 +160,17 @@ class Booking extends Component {
 
           <Row>
           <Col size="md-6">
-          <DropDown
+          <div>
+            <select multiple={true} ref="serviceSelector" value= {[this.state.currentServiceId]} onChange={(e) => {this.selectService();}}>{options}</select>
+          </div>
+          
+          {/* <DropDown
             value={this.state.name}
-            onChange={this.handleInputChange2}
+            onChange={this.handleDropChange}
+            services={this.state.services}
             name="name"
-          />
+          /> */}
+          
           </Col>
           </Row>
 
@@ -205,7 +223,7 @@ class Booking extends Component {
             
           <FormBtn
             disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
-            onClick={this.handleFormSubmit && this.handleFormSubmit2}
+            onClick={this.handleFormSubmit}
           >
             Schedule Service
               </FormBtn>

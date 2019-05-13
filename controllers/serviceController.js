@@ -3,9 +3,9 @@ const db = require("../models");
 // Defining methods for the servicesController
 module.exports = {
   findAll: function(req, res) {
+    console.log("Service Find All Works!!");
     db.Services
       .find(req.query)
-      .sort({ date: -1 })
       .then(dbService => res.json(dbService))
       .catch(err => res.status(422).json(err));
   },
