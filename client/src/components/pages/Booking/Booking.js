@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../components/DeleteBtn";
 // import Jumbotron from "../components/Jumbotron";
-import appointmentAPI from "../../utils/appointmentAPI";
-import servicesAPI from '../../utils/servicesAPI'
-
+import appointmentAPI from "../../../utils/appointmentAPI";
+import servicesAPI from '../../../utils/servicesAPI';
 // import { Link } from "react-router-dom";
 // import { List, ListItem } from "../components/List";
-import { Input,FormBtn } from "../../components/Form";
+import { Input,FormBtn } from "../../../components/Form";
 import M from 'materialize-css';
-import { Container, Col, Row } from "../Grid";
+import { Container, Col, Row } from "../../Grid";
+import "./style.css";
 
 class Booking extends Component {
   state = {
@@ -166,8 +166,12 @@ class Booking extends Component {
 
           <Row>
           <Col size="md-6">
-          <div>
-            <select className="service-select" multiple={true} ref="serviceSelector"  onChange={(e) => {this.selectService(e);}}>{options}</select>
+          <div style={{ color: "white"}}>
+            <select
+            className="service-select" 
+            multiple={true} 
+            ref="serviceSelector" 
+            onChange={(e) => {this.selectService(e);}}>{options}</select>
           </div>
           
           {/* <DropDown
@@ -175,8 +179,8 @@ class Booking extends Component {
             onChange={this.handleDropChange}
             services={this.state.services}
             name="name"
-          /> */}
-          
+          />
+           */}
           </Col>
           </Row>
 
