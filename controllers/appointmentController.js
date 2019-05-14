@@ -3,24 +3,24 @@ const db = require("../models");
 // Defining methods for the appointmentController
 module.exports = {
   findAll: function(req, res) {
-    // console.log("HELLO")
+    console.log("FIND ALL WORKS in Appointment");
     db.Appointment
       .find(req.query)
-      .populate("serviceId")
+      .populate("services")
       .then(dbAppointment => res.json(dbAppointment))
       .catch(err => res.status(422).json(err));
       // console.log(req);
   },
   findById: function(req, res) {
-    // console.log("hi");
+    console.log("FIND APPOINTMENT BY ID");
     db.Appointment
       .findById(req.params.id)
-      .populate("serviceId")
+      .populate("services")
       .then(dbAppointment => res.json(dbAppointment))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    // console.log(req.body)
+    console.log(req.body);
     db.Appointment
       .create(req.body)
       .then(dbAppointment => {res.json(dbAppointment)
@@ -28,7 +28,6 @@ module.exports = {
       .catch(err => {res.status(422) 
       console.log()});
   },
- 
   joining: function(req, res) {
     // Create a new service and pass the req.body to the entry
     db.Services.create(req.body)

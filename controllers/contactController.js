@@ -4,7 +4,6 @@ module.exports = {
     findAll: function(req, res) {
       db.Contact
         .find(req.query)
-        .sort({ date: -1 })
         .then(dbContact => res.json(dbContact))
         .catch(err => res.status(422).json(err));
     },
@@ -15,6 +14,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
+      console.log(req.body);
       db.Contact
         .create(req.body)
         .then(dbContact => res.json(dbContact))

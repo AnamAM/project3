@@ -11,21 +11,26 @@ export function Input(props) {
     )
 }
 
-export function DropDown() {
-    return (
-        <div >
-            {/* className="input-field col s6"> */}
-            <select multiple>
-                <option value="1">Wrapping</option>
+// export function DropDown(props) {
+//     return (
+        
+//         <div >
+        {/* className="input-field col s6"> */}
+
+            {/* <select multiple onChange={props.onChange}>
+            {props.services.map(service => (
+                 <option key={service._id} name={service.name} value={service._id}>{service.name}</option>
+            ))} */}
+                {/* <option value="1">Wrapping</option>
                 <option value="2">Tinting</option>
                 <option value="3">Powder Coating</option>
                 <option value="4">Caliper Painting</option>
-                <option value="5">Tire Lettering & Stickers</option>
-            </select>
-            <label>Select Service(s) *</label>
-        </div>
-    )
-}
+                <option value="5">Tire Lettering  Stickers</option> */}
+//             </select>
+//             <label>Select Service(s) *</label>
+//         </div>
+//     )
+// }
 
 export function FormBtn(props) {
     return (

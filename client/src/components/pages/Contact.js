@@ -37,7 +37,7 @@ class Contact extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.name || this.state.email) {
+    if (this.state.name && this.state.email) {
       contactAPI.saveContact({
         name: this.state.name,
         email: this.state.email,

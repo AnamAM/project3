@@ -15,6 +15,7 @@ export default {
   },
   // Saves a Contact to the database
   saveContact: function(ContactData) {
+    console.log(ContactData)
     return axios.post("/api/contact", ContactData);
   }
 };

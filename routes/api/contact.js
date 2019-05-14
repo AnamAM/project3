@@ -9,7 +9,7 @@ router.route("/")
 // Matches with "/api/appointment/:id"
 router.route("/:id")
   .get(contactController.findById)
-  .post(contactController.joining)
+  // .post(contactController.joining)
   .delete(contactController.remove);
 
 module.exports = router;
