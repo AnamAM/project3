@@ -53,7 +53,7 @@ class Contact extends Component {
     return (
       <div>
       <Container fluid>
-        <h1 style={{textAlign: "center", color: "black"}}>Contact Us!</h1>
+        <h1 style={{textAlign: "center", color: "white"}}>Contact Us!</h1>
         <Input style={{ width: "30%" }}
           type="text"
           placeholder="Name"

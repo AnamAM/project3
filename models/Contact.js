@@ -8,6 +8,7 @@ var ContactSchema = new Schema ({
     },
     email: {
         type: String,
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address."],
         required: true
     },
     subject: {
