@@ -22,10 +22,12 @@ class Booking extends Component {
     vehicleModel: "",
     date: "",
     time: "",
-    currentServiceId: "",
+    currentServiceId: [],
     services: [],
     name: ""
   };
+
+  serviceSelectInstance;
 
   componentDidMount() {
     this.loadAppointment();
@@ -55,8 +57,10 @@ class Booking extends Component {
     servicesAPI.getServices()
     .then(res => {
       this.setState({ services: res.data, },()=>{
-        M.FormSelect.init(document.querySelectorAll('select'));
+        // console.log(document.getElementsByClassName('service-select')[0])
+        this.serviceSelectInstance = M.FormSelect.init(document.getElementsByClassName('service-select')[0]);
       })
+      // console.log(this.serviceSelectInstance)
     }
     )
       .catch(err => console.log(err));
@@ -81,10 +85,13 @@ class Booking extends Component {
   
   // }
 
-  selectService() {
-    // this.setState(this.refs.serviceSelector.value);
-    this.setState({currentServiceId:this.refs.serviceSelector.value})
-    console.log(this.refs.serviceSelector.value);
+  selectService(e) {
+    const serviceArr = this.serviceSelectInstance .getSelectedValues();
+    console.log(serviceArr)
+    this.setState(lastState => ({
+      currentServiceId:serviceArr
+    }))
+    // console.log(this.refs.serviceSelector.value);
   }
 
 
@@ -161,7 +168,7 @@ class Booking extends Component {
           <Row>
           <Col size="md-6">
           <div>
-            <select multiple={true} ref="serviceSelector" value= {[this.state.currentServiceId]} onChange={(e) => {this.selectService();}}>{options}</select>
+            <select className="service-select" multiple={true} ref="serviceSelector"  onChange={(e) => {this.selectService(e);}}>{options}</select>
           </div>
           
           {/* <DropDown

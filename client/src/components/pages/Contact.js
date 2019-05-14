@@ -1,21 +1,92 @@
-import React from "react";
+import React, { Component } from "react";
+import { Input } from "../Form";
+import { Container } from "../Grid";
+import contactAPI from "../../utils/contactAPI";
 
-function Contact() {
-  return (
-    <div>
-      <h1>Contact Us!</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-        varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-        Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-        imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum
-        ligula in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare
-        elit. Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-        consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus.
-      </p>
-    </div>
-  );
+class Contact extends Component {
+  state = {
+    contacts: [],
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+
+  };
+
+  loadContacts = () => {
+    contactAPI.getContacts()
+      .then(res =>
+        this.setState({ contacts: res.data, name: "", email: "", subject: "", message: "" })
+      )
+      .catch(err => console.log(err));
+    console.log(this.state.contacts);
+  }
+
+  deleteContact = id => {
+    contactAPI.deleteContact(id)
+      .then(res => this.loadContacts())
+      .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.name && this.state.email) {
+      contactAPI.saveContact({
+        name: this.state.name,
+        email: this.state.email,
+        subject: this.state.subject,
+        message: this.state.message
+      })
+      .then(res => this.loadContacts())
+      .catch(err => console.log(err));
+    }
+  };
+
+  render() {
+    return (
+      <div>
+      <Container fluid>
+        <h1 style={{textAlign: "center", color: "black"}}>Contact Us!</h1>
+        <Input style={{ width: "30%" }}
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={this.state.name}
+          onChange={this.handleInputChange}
+        />
+        <Input style={{ width: "30%" }}
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={this.state.email}
+          onChange={this.handleInputChange}
+        />
+        <Input style={{ width: "30%" }}
+          type="text"
+          placeholder="Subject"
+          name="subject"
+          value={this.state.subject}
+          onChange={this.handleInputChange}
+        />
+        <Input style={{ width: "30%" }}
+          type="text"
+          placeholder="Message"
+          name="message"
+          value={this.state.message}
+          onChange={this.handleInputChange}
+        />
+        <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Send Email</button>
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default Contact;
