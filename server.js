@@ -18,6 +18,13 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/OAS");
 
+// Do shit when connected
+// const db = mongoose.connection;
+
+// db.once("open", () => {
+//   // const serviceSeed = require('./scripts/ServiceSeed');
+// })
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

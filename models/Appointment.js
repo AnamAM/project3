@@ -31,9 +31,10 @@ var appointmentSchema = new Schema({
         required: true
     },
     // allows us to populate appointment with an associated service
-    serviceId: [{
+    services: [{
         type: Schema.Types.ObjectId,
-        ref: "Services"
+        ref: "Services",
+        required: true
     }],
     // allows us to populate appointment with an associated customer
     customerId: {

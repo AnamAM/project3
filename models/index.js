@@ -4,5 +4,6 @@ module.exports = {
   Invoices: require("./Invoices"),
   OrderItems: require("./OrderItems"),
   Products: require("./Products"),
-  Customer: require("./Customer")
+  Customer: require("./Customer"),
+  Contact: require("./Contact")
 };
