@@ -96,16 +96,16 @@ class Booking extends Component {
     }
   };
 
-  handleFormSubmit2 = event => {
-    event.preventDefault();
-    if (this.state.name) {
-      servicesAPI.saveService({
-        name: this.state.name
-      })
-        .then(res => this.loadServices())
-        .catch(err => console.log(err));
-    }
-  };
+  // handleFormSubmit2 = event => {
+  //   event.preventDefault();
+  //   if (this.state.name) {
+  //     servicesAPI.saveService({
+  //       name: this.state.name
+  //     })
+  //       .then(res => this.loadServices())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
   render() {
     return (

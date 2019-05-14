@@ -17,6 +17,7 @@ function Card(props) {
           <p>{props.description}</p>
         </div>
       </div>
+      <label for="spinner">Quantity:</label><input id="spinner" type="number" min="1" max="5"/>
       {props.children}
     </div>
   )

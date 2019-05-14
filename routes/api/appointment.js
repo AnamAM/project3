@@ -6,7 +6,6 @@ router.route("/")
   .get(appointmentsController.findAll)
   .post(appointmentsController.create);
 
-
 // Matches with "/api/appointment/:id"
 router.route("/:id")
   .get(appointmentsController.findById)

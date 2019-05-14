@@ -1,15 +1,32 @@
 import React, { Component } from "react";
 import { Input } from "../Form";
 import { Container } from "../Grid";
+import contactAPI from "../../utils/contactAPI";
 
 class Contact extends Component {
   state = {
+    contacts: [],
     name: "",
     email: "",
     subject: "",
     message: ""
+
   };
 
+  loadContacts = () => {
+    contactAPI.getContacts()
+      .then(res =>
+        this.setState({ contacts: res.data, name: "", email: "", subject: "", message: "" })
+      )
+      .catch(err => console.log(err));
+    console.log(this.state.contacts);
+  }
+
+  deleteContact = id => {
+    contactAPI.deleteContact(id)
+      .then(res => this.loadContacts())
+      .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -19,15 +36,17 @@ class Contact extends Component {
   };
 
   handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.name || !this.state.email) {
-      alert("Please enter your name and email address.");
+    if (this.state.name || this.state.email) {
+      contactAPI.saveContact({
+        name: this.state.name,
+        email: this.state.email,
+        subject: this.state.subject,
+        message: this.state.message
+      })
+      .then(res => this.loadContacts())
+      .catch(err => console.log(err));
     }
-    else {
-      alert(`Thank you, ${this.state.name}! We'll get back to you as soon as possible.`);
-    }
-    this.setState({ name: "", email: "", subject: "", message: "" });
   };
 
   render() {
@@ -52,7 +71,7 @@ class Contact extends Component {
         <Input style={{ width: "30%" }}
           type="text"
           placeholder="Subject"
-          name="Subject"
+          name="subject"
           value={this.state.subject}
           onChange={this.handleInputChange}
         />
@@ -63,7 +82,7 @@ class Contact extends Component {
           value={this.state.message}
           onChange={this.handleInputChange}
         />
-        <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Submit</button>
+        <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Send Email</button>
         </Container>
       </div>
     );
