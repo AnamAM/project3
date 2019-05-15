@@ -4,21 +4,24 @@ import "./style.css";
 function Card(props) {
   return (
     <div>
-      <div className="card" {...props}>
-        <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" alt={props.name} src={props.image}></img>
-        </div>
-        <div className="card-content">
-          <span className="card-title activator grey-text text-darken-4">{props.name}<i className="material-icons right"></i></span>
-          {/* <p><a href="#">This is a link</a></p> */}
-        </div>
-        <div className="card-reveal" style={{ opacity: "0.5"}}>
-          <span className="card-title grey-text text-darken-4" style={{ fontSize: "16pt" }}>Product Description:<i className="material-icons right">close</i></span>
-          <p>{props.description}</p>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img className="activator" alt={props.name} src={props.image}></img>  
+              <div className="card-body">
+                <p class="card-title" style={{ textAlign: "center" }}>{props.name}</p>
+              </div>
+              <div class="card-content" style={{ textAlign: "center" }}>
+              <br></br>
+                <p style={{ textAlign: "center" }}>{`$${props.price}`}</p>
+                <br></br>
+                <a class="waves-effect waves-light btn-small" style={{ textAlign: "center" }}>ADD TO CART</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <label htmlFor="spinner">Quantity:</label><input id="spinner" type="number" min="1" max="5"/>
-      {props.children}
     </div>
   )
 }

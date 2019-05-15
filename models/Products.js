@@ -11,6 +11,9 @@ var productSchema = new Schema({
     quantity: {
         type: Number
     },
+    description: {
+        type: String
+    },
     isActive: {
         type: String,
         required: true

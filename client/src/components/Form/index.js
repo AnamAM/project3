@@ -35,7 +35,7 @@ export function Input(props) {
 export function FormBtn(props) {
     return (
         <button {...props} className="btn waves-effect waves-light" type="submit" name="action">
-            <i className="material-icons right">send</i>
+            <i className="material-icons right"></i>
             {props.children}
         </button>
     )
