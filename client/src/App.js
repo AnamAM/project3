@@ -9,6 +9,7 @@ import Cart from "./components/pages/Cart";
 import Contact from "./components/pages/Contact";
 import Staff from "./components/pages/Staff";
 import Login from "./components/Auth/Login";
+import Admin from "./components/pages/Admin";
 
 function onAuthRequired({history}) {
   history.push("/login");
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/admin" component={Admin} />
           <SecureRoute exact path="/staff" component={Staff} />
           <Route path='/login' render={() => <Login baseUrl='https://dev-617186.okta.com' />} />
           <Route path='/implicit/callback' component={ImplicitCallback} />

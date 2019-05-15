@@ -11,11 +11,19 @@ function Navbar() {
       </Link> */}
         <ul className="navbar-nav" id="nav-mobile" >
         {/* this className could go in this ul tag above... className="right hide-on-med-and-down" */}
-        <li className="nav-item nav">
+        {/* <li className="nav-item nav">
             <Link 
               to="/"
               className= {window.location.pathname === "/home" ? "nav-link active" : "nav-link light"} 
               >
+              OAS
+            </Link>
+          </li> */}
+          <li className="nav-item nav">
+            <Link
+              to="/admin"
+              className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
+            >
               OAS
             </Link>
           </li>
