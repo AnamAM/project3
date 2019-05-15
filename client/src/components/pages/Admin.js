@@ -21,11 +21,11 @@ export default withAuth(class Staff extends Component {
     }
 
     login = async () => {
-        this.props.auth.login('/');
+        this.props.auth.login('/staff');
     }
 
     logout = async () => {
-        this.props.auth.logout('/');
+        this.props.auth.logout('/admin');
     }
 
     render() {
@@ -39,7 +39,7 @@ export default withAuth(class Staff extends Component {
         ) : (
                 <div>
                     <p className="lead">If you are a staff member, please get your credentials from a supervisor.</p>
-                <button className="waves-effect waves-light btn-large" onClick={this.login}>Login</button>
+                <button className="waves-effect waves-light btn-large" onClick={this.login}>Login <Link to="/staff"></Link></button>
                 </div>
             );
 

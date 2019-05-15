@@ -29,29 +29,29 @@ if (process.env.NODE_ENV === "production") {
 //         console.log()
 //       });
 
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
-      }
-    });
+//     let transporter = nodemailer.createTransport({
+//       service: "gmail",
+//       auth: {
+//         user: process.env.EMAIL,
+//         pass: process.env.PASSWORD
+//       }
+//     });
 
-    let mailOptions = {
-      from: "h.a.s.bloodclinic@gmail.com",
-      to: req.body.email,
-      subject: "Confirmation Email",
-      html: "<h3>Your appointment is scheduled for " + moment(req.body.date).format('LL') + " at " + req.body.time + " AM! We'll be looking forward to seeing you soon. Thank you for your service!</h3><p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have any questions regarding your appointment, please give us a call at 1 (800)-HAS-LIFE.<p>"
-    };
+//     let mailOptions = {
+//       from: "h.a.s.bloodclinic@gmail.com",
+//       to: req.body.email,
+//       subject: "Confirmation Email",
+//       html: "<h3>Your appointment is scheduled for " + moment(req.body.date).format('LL') + " at " + req.body.time + " AM! We'll be looking forward to seeing you soon. Thank you for your service!</h3><p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have any questions regarding your appointment, please give us a call at 1 (800)-HAS-LIFE.<p>"
+//     };
 
-    transporter.sendMail(mailOptions, function (err, data) {
-      if (err) {
-        console.log("Error occured.", err);
-      }
-      else {
-        console.log("Email sent!")
-      }
-    });
+//     transporter.sendMail(mailOptions, function (err, data) {
+//       if (err) {
+//         console.log("Error occured.", err);
+//       }
+//       else {
+//         console.log("Email sent!")
+//       }
+//     });
 //   }
 // }
 
