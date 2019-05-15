@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class Staff extends Component {
     state = {
-        currentUserName: "",
-        currentUserEmail: ""
+        currentUserEmail: "",
+        currentUserName: ""
     }
 
     componentDidMount() {
@@ -15,9 +15,13 @@ class Staff extends Component {
     }
 
     render() {
+        // console.log(this.state);
+        const { currentUserEmail, currentUserName } = this.state;
         return (
             <div style={{ color: "white" }}>
-                Welcome to the staff page.
+                <h3>Welcome, { currentUserName }!</h3>
+                <p>Email: {currentUserEmail}</p>
+                <p>You have reached the authorized staff area of the portal.</p>
            </div>
         )
     }
