@@ -20,13 +20,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.Appointment
       .create(req.body)
       .then(dbAppointment => {res.json(dbAppointment)
       })
       .catch(err => {res.status(422) 
-      console.log()});
+      // console.log()
+    });
+
   },
   joining: function(req, res) {
     // Create a new service and pass the req.body to the entry
@@ -41,7 +43,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    console.log("deleted from appointment")
+    // console.log("deleted from appointment")
     db.Appointment
       .findById({ _id: req.params.id })
       .then(dbAppointment => dbAppointment.remove())
