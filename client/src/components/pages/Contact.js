@@ -54,28 +54,28 @@ class Contact extends Component {
       <div>
       <Container fluid>
         <h1 style={{textAlign: "center", color: "white"}}>Contact Us!</h1>
-        <Input style={{ width: "30%" }}
+        <Input style={{ width: "30%", fontWeight: "bolder" }}
           type="text"
           placeholder="Name"
           name="name"
           value={this.state.name}
           onChange={this.handleInputChange}
         />
-        <Input style={{ width: "30%" }}
+        <Input style={{ width: "30%", fontWeight: "bolder" }}
           type="text"
           placeholder="Email"
           name="email"
           value={this.state.email}
           onChange={this.handleInputChange}
         />
-        <Input style={{ width: "30%" }}
+        <Input style={{ width: "30%", fontWeight: "bolder" }}
           type="text"
           placeholder="Subject"
           name="subject"
           value={this.state.subject}
           onChange={this.handleInputChange}
         />
-        <Input style={{ width: "30%" }}
+        <Input style={{ width: "30%", fontWeight: "bolder" }}
           type="text"
           placeholder="Message"
           name="message"

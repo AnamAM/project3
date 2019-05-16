@@ -1,6 +1,6 @@
  .card {
     width: 60%;
-    height: 70.5%;
+    height: 60;
     background-color: black;
     margin-left: 80px;
 }
@@ -8,8 +8,6 @@
 .activator {
   height: 74%;
 }
-
-
 
 /* .card {
     background: rgb(42, 44, 44);

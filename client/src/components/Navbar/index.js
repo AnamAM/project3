@@ -22,6 +22,7 @@ function Navbar() {
           <li className="nav-item nav">
             <Link
               to="/admin"
+            
               className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
             >
               OAS
@@ -29,6 +30,7 @@ function Navbar() {
           </li>
         <li className="nav-item nav">
             <Link
+          
               to="/staff"
               className={window.location.pathname === "/staff" ? "nav-link active" : "nav-link"}
             >
@@ -37,6 +39,7 @@ function Navbar() {
           </li>
           <li className="nav-item nav right-side">
             <Link
+          
               to="/"
               className={ 
                 window.location.pathname === "/" || window.location.pathname === "/home"
@@ -49,6 +52,7 @@ function Navbar() {
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/booking"
               className={window.location.pathname === "/booking" ? "nav-link active" : "nav-link"}
             >
@@ -57,6 +61,7 @@ function Navbar() {
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/shop"
               className={window.location.pathname === "/shop" ? "nav-link active" : "nav-link"}
             >
@@ -65,6 +70,7 @@ function Navbar() {
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/contact"
               className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
             >
@@ -73,11 +79,13 @@ function Navbar() {
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/cart"
               className={window.location.pathname === "/cart" ? "nav-link active" : "nav-link"}
             >
               Cart
             </Link>
+          
           </li>
          <i className="material-icons cart">shopping_cart</i>
         </ul>
