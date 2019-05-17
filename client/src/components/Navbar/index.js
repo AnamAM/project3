@@ -22,7 +22,7 @@ function Navbar() {
           <li className="nav-item nav">
             <Link
               to="/admin"
-            
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
             >
               OAS
@@ -32,62 +32,68 @@ function Navbar() {
             <Link
           
               to="/staff"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/staff" ? "nav-link active" : "nav-link"}
             >
-              Staff
+              STAFF
             </Link>
           </li>
           <li className="nav-item nav right-side">
             <Link
           
               to="/"
+              style={{ fontSize: "18px"}}
               className={ 
                 window.location.pathname === "/" || window.location.pathname === "/home"
                   ? "nav-link active"
                   : "nav-link"
               }
             >
-              Home
+              HOME
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
           
               to="/booking"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/booking" ? "nav-link active" : "nav-link"}
             >
-              Book Services
+              BOOK SERVICES
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
           
               to="/shop"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/shop" ? "nav-link active" : "nav-link"}
             >
-              Shop
+              SHOP
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
           
               to="/contact"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
             >
-              Contact
+              CONTACT
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
           
               to="/cart"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/cart" ? "nav-link active" : "nav-link"}
             >
-              Cart
+              CART
             </Link>
           
           </li>
-         <i className="material-icons cart">shopping_cart</i>
+         {/* <i className="material-icons cart">shopping_cart</i> */}
         </ul>
       </div>
     </nav>

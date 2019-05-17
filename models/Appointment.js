@@ -22,13 +22,11 @@ var appointmentSchema = new Schema({
         type: String,
     },
     date: {
-        type: String,
-        default: Date.now
+        type: String
     },
     time: {
         // needs to be converted by using moment.js
-        type: String,
-        required: true
+        type: String
     },
     // allows us to populate appointment with an associated service
     services: [{

@@ -1,3 +1,9 @@
 .select-dropdown {
     color: white;
 }
+
+.book {
+    color: lightgray;
+    font-weight: bold;
+    font-family: 'Ropa Sans', sans-serif;
+}

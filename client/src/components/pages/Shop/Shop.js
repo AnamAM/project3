@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Card from "../Card";
-import { Container, Col, Row } from "../Grid";
-import productsAPI from "../../utils/productsAPI";
+import Card from "../../Card";
+import { Container, Col, Row } from "../../Grid";
+import productsAPI from "../../../utils/productsAPI";
+import "./style.css";
 // import products from "../../products.json"
-import image1 from "../../images/product1.png"
-import image2 from "../../images/product2.png"
-import image3 from "../../images/product3.png"
+// import image1 from "../../images/product1.png"
+// import image2 from "../../images/product2.png"
+// import image3 from "../../images/product3.png"
 
 
 class Shop extends Component {
@@ -68,18 +69,17 @@ class Shop extends Component {
           <h1 style={{ textAlign: "center", color: "white" }}>Shop Our Products</h1>
           <Row>
             {this.state.products.map((product, i) => {
-              
               console.log(product)
-              return (<Col key={product._id} size='md-4'>
-              
-              <Card name={product.name}
+              return (
+                <Col key={product._id} size='md-4'>
+              <Card className="content" name={product.name}
                 image={product.image}
-                price={product.price}
-                description ={product.description}/>
+                description = {product.description}
+                price = {product.price} >
+                </Card>
               </Col>
             )})}
               {/* <Card
-     
               />
             </Col>
             <Col size="md-4">

@@ -1,10 +1,18 @@
 .right-side {
-    margin-left: 850px;
+    margin-left: 750px;
 }
 
 .cart {
     margin-top: 10px;
 }
+
+/* .nav-link {
+    color: teal;
+} */
+
+/* .navbar-dark {
+    color: rgba(255,255,255,0.5) !important;
+} */
 
 /* Link {
     font-size: 
