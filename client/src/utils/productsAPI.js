@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all products
   getProducts: function() {
-    console.log({});
+    // console.log({});
     return axios.get("/api/products");
   },
   // Gets the service with the given id
