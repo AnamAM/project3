@@ -15,8 +15,8 @@ var productSchema = new Schema({
         type: String
     },
     isActive: {
-        type: String,
-        required: true
+        type: Boolean,
+        required: false
     }
 });
 

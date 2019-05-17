@@ -6,7 +6,6 @@ const contactRoute = require("./contact");
 const cartRoute = require("./cart");
 
 
-// Book routes
 router.use("/services", serviceRoute);
 router.use("/appointment", appointmentRoute);
 router.use("/products", productRoute);
