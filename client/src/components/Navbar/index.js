@@ -11,59 +11,89 @@ function Navbar() {
       </Link> */}
         <ul className="navbar-nav" id="nav-mobile" >
         {/* this className could go in this ul tag above... className="right hide-on-med-and-down" */}
-        <li className="nav-item nav">
+        {/* <li className="nav-item nav">
             <Link 
               to="/"
               className= {window.location.pathname === "/home" ? "nav-link active" : "nav-link light"} 
               >
               OAS
             </Link>
+          </li> */}
+          <li className="nav-item nav">
+            <Link
+              to="/admin"
+              style={{ fontSize: "18px"}}
+              className={window.location.pathname === "/admin" ? "nav-link active" : "nav-link"}
+            >
+              OAS
+            </Link>
           </li>
         <li className="nav-item nav">
             <Link
-              to="/booking"
-              className={window.location.pathname === "/booking" ? "nav-link active" : "nav-link"}
+          
+              to="/staff"
+              style={{ fontSize: "18px"}}
+              className={window.location.pathname === "/staff" ? "nav-link active" : "nav-link"}
             >
-              Book Services
+              STAFF
             </Link>
           </li>
           <li className="nav-item nav right-side">
             <Link
+          
               to="/"
+              style={{ fontSize: "18px"}}
               className={ 
                 window.location.pathname === "/" || window.location.pathname === "/home"
                   ? "nav-link active"
                   : "nav-link"
               }
             >
-              Home
+              HOME
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
+          
+              to="/booking"
+              style={{ fontSize: "18px"}}
+              className={window.location.pathname === "/booking" ? "nav-link active" : "nav-link"}
+            >
+              BOOK SERVICES
+            </Link>
+          </li>
+          <li className="nav-item nav">
+            <Link
+          
               to="/shop"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/shop" ? "nav-link active" : "nav-link"}
             >
-              Shop
+              SHOP
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/contact"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}
             >
-              Contact
+              CONTACT
             </Link>
           </li>
           <li className="nav-item nav">
             <Link
+          
               to="/cart"
+              style={{ fontSize: "18px"}}
               className={window.location.pathname === "/cart" ? "nav-link active" : "nav-link"}
             >
-              Cart
+              CART
             </Link>
+          
           </li>
-         <i className="material-icons cart">shopping_cart</i>
+         {/* <i className="material-icons cart">shopping_cart</i> */}
         </ul>
       </div>
     </nav>

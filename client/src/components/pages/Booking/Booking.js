@@ -85,7 +85,7 @@ class Booking extends Component {
   // }
 
   selectService(e) {
-    const serviceArr = this.serviceSelectInstance .getSelectedValues();
+    const serviceArr = this.serviceSelectInstance.getSelectedValues();
     console.log(serviceArr)
     this.setState(lastState => ({
       currentServiceId:serviceArr
