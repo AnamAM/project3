@@ -12,8 +12,8 @@ var productSchema = new Schema({
         type: Number
     },
     isActive: {
-        type: String,
-        required: true
+        type: Boolean,
+        required: false
     }
 });
 

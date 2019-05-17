@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Col, Row } from "../Grid";
 
-function Cart() {
+function Cart(props) {
   return (
     <div>
-      <h1 style={{textAlign: "center", color: "white"}}>Shopping Cart</h1>
+      <h1 style={{textAlign: "center", color: "white"}}>Shopping Cart [{props.cart.toString()}]</h1>
     <Container>
       <Row>
       <Col size="md-12">

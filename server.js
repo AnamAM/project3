@@ -1,5 +1,4 @@
 const express = require("express");
-
 const mongoose = require("mongoose"); 
 const routes = require("./routes");
 const app = express();
@@ -19,11 +18,12 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/OAS");
 
 // Do shit when connected
-// const db = mongoose.connection;
+const db = mongoose.connection;
 
-// db.once("open", () => {
-//   // const serviceSeed = require('./scripts/ServiceSeed');
-// })
+db.once("open", () => {
+require('./scripts/ServiceSeed');
+require('./scripts/productsSeed');
+})
 
 // Start the API server
 app.listen(PORT, function() {
