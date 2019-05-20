@@ -134,7 +134,7 @@ class Booking extends Component {
         <Container fluid>
         <Row>
         <Col size="md-12">
-        <h1  style={{ textAlign: "center", color: "white", fontFamily: 'Roboto Condensed, sans-serif', letterSpacing: ".1em", fontSize: "44pt",  textTransform: "uppercase" }}>Book a Service!</h1>
+        <h1  style={{ textAlign: "center", color: "white", fontFamily: 'Oswald, sans-serif', letterSpacing: ".2em", fontSize: "44pt",  textTransform: "uppercase" }}>Book a Service</h1>
 
         <Row>
         <Col size="sm-4">
@@ -234,7 +234,7 @@ class Booking extends Component {
           <Col size="md-6">
             
           <FormBtn
-            disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
+            // disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
             onClick={this.handleFormSubmit}
           >
             Schedule Service

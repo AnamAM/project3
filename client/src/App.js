@@ -12,6 +12,7 @@ import Login from "./components/Auth/Login";
 import Admin from "./components/pages/Admin";
 import Details from "./components/pages/Details";
 import Default from "./components/pages/Default";
+import Modal from "./components/Modal";
 
 function onAuthRequired({ history }) {
   history.push("/login");
@@ -26,7 +27,6 @@ class App extends Component {
           onAuthRequired={onAuthRequired} >
           <React.Fragment>
             <Navbar />
-
             <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/shop" component={Shop} />
@@ -38,7 +38,7 @@ class App extends Component {
             <SecureRoute exact path="/staff" component={Staff} />
             <Route component={Default} />
             </Switch>
-
+            <Modal />
             <Route path='/login' render={() => <Login baseUrl='https://dev-617186.okta.com' />} />
             <Route path='/implicit/callback' component={ImplicitCallback} />
           </React.Fragment>

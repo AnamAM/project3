@@ -53,7 +53,7 @@ class Contact extends Component {
     return (
       <div>
         <Container fluid>
-          <h1 style={{ textAlign: "center", color: "white", fontFamily: 'Roboto Condensed, sans-serif', letterSpacing: ".1em", fontSize: "44pt",  textTransform: "uppercase" }}>
+          <h1 style={{ textAlign: "center", color: "white", fontFamily: 'Oswald, sans-serif', letterSpacing: ".2em", fontSize: "44pt",  textTransform: "uppercase" }}>
             Contact Us</h1>
           <Input style={{ width: "30%" }}
             type="text"

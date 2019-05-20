@@ -1,7 +1,7 @@
 export const storeProducts = [
   {
     id: 1,
-    title: "Shampoo Bath",
+    name: "Shampoo Bath",
     img: "img/product1.png",
     price: 11.99,
     company: "OAS",
@@ -13,7 +13,7 @@ export const storeProducts = [
   },
   {
     id: 2,
-    title: "Tire Shine",
+    name: "Tire Shine",
     img: "img/product2.png",
     price: 11.99,
     company: "OAS",
@@ -25,7 +25,7 @@ export const storeProducts = [
   },
   {
     id: 3,
-    title: "Waterless Wash",
+    name: "Waterless Wash",
     img: "img/product3.png",
     price: 13.99,
     company: "OAS",
@@ -39,9 +39,9 @@ export const storeProducts = [
 
 export const detailProduct =  {
   id: 1,
-  title: "Shampoo Bath",
+  name: "Shampoo Bath",
   img: "img/product1.png",
-  price: 10,
+  price: 11.99,
   company: "OAS",
   info:
     "Shampoo Bath has the best gloss-boosting soap formula which will allow your car to have a beautiful sheen.",

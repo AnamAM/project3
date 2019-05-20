@@ -26,7 +26,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var productSchema = new Schema({
+    id: {
+        type: Number
+    },
+    company: {
+        type: Number
+    },
     name: {
+        type: String
+    },
+    img: {
         type: String
     },
     price: {
@@ -35,12 +44,12 @@ var productSchema = new Schema({
     quantity: {
         type: Number
     },
-    description: {
+    info: {
         type: String
     },
-    isActive: {
-        type: String,
-        required: true
+    inCart: {
+        type: Boolean,
+        required: false
     }
 });
 

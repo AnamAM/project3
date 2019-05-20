@@ -51,7 +51,7 @@ body {
 .text-title {
   font-family: "Roboto Condensed";
   letter-spacing: .3rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .text-white {

@@ -8,7 +8,7 @@ import { ProductConsumer } from "../../context";
 export default class Product extends Component {
   render() {
     // this prop is being referenced from product.js
-    const { id, title, img, price, inCart } = this.props.product;
+    const { id, name, img, price, inCart } = this.props.product;
     return (
       <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
         <div className="card">
@@ -17,15 +17,15 @@ export default class Product extends Component {
               return (
                 <div
                   className="img-container p-8"
-            
+                  // once image container is cicked, the method of handleDetail is going to run and it'll expect to get an id and will find the particular product that is being clicked on and you will be able to get it from the product array 
                   // doing a callback function to return after the image is clicked on
                   onClick={() => value.handleDetail(id)}
                 >
-                {/* if in cart is true, then return the true for the disabled.. however, if it's false, then you return the false  */}
+                  {/* if in cart is true, then return the true for the disabled.. however, if it's false, then you return the false  */}
                   <Link to="/details">
                     <img src={img} alt="" className="card-img-top" />
                   </Link>
-                  <button 
+                  <button
                     className="cart-btn waves-effect waves-light btn-small"
                     disabled={inCart ? true : false}
                     onClick={() => {
@@ -39,15 +39,15 @@ export default class Product extends Component {
                         In Cart
                       </p>
                     ) : (
-                      <i className="fas fa-cart-plus" />
-                    )}
+                        <i className="fas fa-cart-plus" />
+                      )}
                   </button>
                 </div>
               );
             }}
           </ProductConsumer>
           <div className="card-footer d-flex justify-content-between">
-            <p className="align-self-center mb-0">{title}</p>
+            <p className="align-self-center mb-0">{name}</p>
             <h5 className="text-black font-italic mb-0">
               <span className="mr-1">$</span>
               {price}
@@ -63,7 +63,7 @@ export default class Product extends Component {
 //   product: PropTypes.shape({
 //     id: PropTypes.number,
 //     img: PropTypes.string,
-//     title: PropTypes.string,
+//     name: PropTypes.string,
 //     price: propTypes.number,
 //     inCart: propTypes.boolean
 //   }).isRequired
