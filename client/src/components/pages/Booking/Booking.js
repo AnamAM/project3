@@ -7,6 +7,7 @@ import servicesAPI from '../../../utils/servicesAPI';
 // import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../../../components/Form";
 import M from 'materialize-css';
+import Title from "../../Title";
 import { Container, Col, Row } from "../../Grid";
 // import { TextField } from '@material-ui/core';
 
@@ -80,6 +81,7 @@ class Booking extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.vehicleMake && this.state.vehicleModel) {
+      // this.props.setCart(9)
       appointmentAPI.saveAppointment({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -102,111 +104,115 @@ class Booking extends Component {
     })
     return (
       <div>
+        <Title name="Book" title="A Service" />
         <form>
-          <Container fluid>
-            <Row>
-              <Col size="md-12">
-                <h1 className="book">Book a Service!</h1>
+        <Container fluid>
+        <Row>
+        <Col size="md-12">
 
-                <Row>
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.firstName}
-                      onChange={this.handleInputChange}
-                      name="firstName"
-                      placeholder="First Name *"
-                    />
-                  </Col>
+        <Row>
+        <Col size="sm-4">
+          <Input
+            value={this.state.firstName}
+            onChange={this.handleInputChange}
+            name="firstName"
+            placeholder="First Name *"
+          />
+          </Col>
+          <Col size="sm-4">
+          <Input
+            value={this.state.lastName}
+            onChange={this.handleInputChange}
+            name="lastName"
+            placeholder="Last Name *"
+          />
+          </Col>
+          </Row>
 
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.lastName}
-                      onChange={this.handleInputChange}
-                      name="lastName"
-                      placeholder="Last Name *"
-                    />
-                  </Col>
-                </Row>
+          <Row>
+          <Col size="sm-4">
+          <Input
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            name="email"
+            placeholder="Email *"
+          />
+          </Col>
+          </Row>
 
-                <Row>
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.email}
-                      onChange={this.handleInputChange}
-                      name="email"
-                      placeholder="Email *"
-                    />
-                  </Col>
-                </Row>
+          <Row>
+          <Col size="md-6">
+          <div style={{ color: "white"}}>
+            <select
+            className="service-select" 
+            multiple={true} 
+            ref="serviceSelector" 
+            onChange={(e) => {this.selectService(e);}}>{options}</select>
+          </div>
+          
+          {/* <DropDown
+            value={this.state.name}
+            onChange={this.handleDropChange}
+            services={this.state.services}
+            name="name"
+          />
+           */}
+          </Col>
+          </Row>
 
-                <Row>
-                  <Col size="md-6">
-                    <div style={{ color: "white" }}>
-                      <select
-                        className="service-select"
-                        multiple={true}
-                        ref="serviceSelector"
-                        onChange={(e) => { this.selectService(e); }}>{options}</select>
-                    </div>
-                  </Col>
-                </Row>
+          <Row>
+          <Col size="sm-4">
+          <Input
+            value={this.state.vehicleMake}
+            onChange={this.handleInputChange}
+            name="vehicleMake"
+            placeholder="Vehicle Make *"
+          />
+          </Col>
+          <Col size="sm-4">
+          <Input
+            value={this.state.vehicleModel}
+            onChange={this.handleInputChange}
+            name="vehicleModel"
+            placeholder="Vehicle Model *"
+          />
+          </Col>
+          <Col size="sm-4">
+          <Input
+            value={this.state.vehicleColor}
+            onChange={this.handleInputChange}
+            name="vehicleColor"
+            placeholder="Vehicle Color *"
+          />
+          </Col>
+          </Row>
 
-                <Row>
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.vehicleMake}
-                      onChange={this.handleInputChange}
-                      name="vehicleMake"
-                      placeholder="Vehicle Make *"
-                    />
-                  </Col>
-
-
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.vehicleModel}
-                      onChange={this.handleInputChange}
-                      name="vehicleModel"
-                      placeholder="Vehicle Model *"
-                    />
-                  </Col>
-
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.vehicleColor}
-                      onChange={this.handleInputChange}
-                      name="vehicleColor"
-                      placeholder="Vehicle Color *"
-                    />
-                  </Col>
-                </Row>
-
-                <Row>
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.date}
-                      onChange={this.handleInputChange}
-                      name="date"
-                      placeholder="Date *"
-                    />
-                  </Col>
-
-                  <Col size="sm-4">
-                    <Input
-                      value={this.state.time}
-                      onChange={this.handleInputChange}
-                      name="time"
-                      placeholder="Time *"
-                    />
-                  </Col>
-                </Row>
-
-                <Col size="md-6">
-                  <FormBtn
-                    disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Schedule Service
+          <Row>
+          <Col size="sm-4">
+          <Input
+            value={this.state.date}
+            onChange={this.handleInputChange}
+            name="date"
+            placeholder="Date *"
+          />
+          </Col>
+          <Col size="sm-4">
+          <Input
+            value={this.state.time}
+            onChange={this.handleInputChange}
+            name="time"
+            placeholder="Time *"
+          />
+          </Col>
+          </Row>
+          <Col size="md-6">
+            
+          <FormBtn
+            // disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
+            onClick={this.handleFormSubmit}
+          >
+            Schedule Service {' '}
+            <i className="fas fa-calendar-check"></i>
               </FormBtn>
                 </Col>
               </Col>

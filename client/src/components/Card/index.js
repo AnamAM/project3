@@ -23,22 +23,24 @@ function Card(props) {
         </div>
       </div> */}
 
-      <Row>
+      
       <div id="f1_container">
-        <div id="f1_card" class="shadow">
-          <div className="front face">
-            <img className="activator" alt={props.name} src={props.image} />
+          <div id="f1_card" className="shadow">
+            <div className="front face">
+              <img className="activator" alt={props.name} src={props.image} />
+              <br></br>
+            </div>
+            <div className="back face center">
+              <p>{props.description}</p>
+            </div>
           </div>
-          <div class="back face center">
-            <p>{props.description}</p>
-          </div>
+          <p style={{ fontSize: "18pt", textAlign: "center", marginTop: "5px"}}>{props.name}</p>
+          <p style={{ textAlign: "center", fontSize: "16pt", marginBottom: "20px" }}>{`$${props.price}`}</p>
+          <br></br>
+
+          {/* <button className="waves-effect waves-light btn-small button" style={{ marginTop: "2px", marginLeft: "90px"}}>ADD TO CART</button> */}
         </div>
-        <br></br>
-            <p style={{ textAlign: "center", fontSize: "18pt"}}>{`$${props.price}`}</p>
-            
-            <button className="waves-effect waves-light btn-small button" style={{ marginTop: "2px", marginLeft: "90px"}}>ADD TO CART</button>
-      </div>
-      </Row>
+      
 
 
 
@@ -47,3 +49,31 @@ function Card(props) {
 }
 
 export default Card;
+
+
+// import React from "react";
+// import "./style.css";
+
+// function Card(props) {
+//   return (
+//     <div>
+//       <div className="card" {...props}>
+//         <div className="card-image waves-effect waves-block waves-light">
+//           <img className="activator" alt={props.name} src={props.image}></img>
+//         </div>
+//         <div className="card-content">
+//           <span className="card-title activator grey-text text-darken-4">{props.name}<i className="material-icons right"></i></span>
+//           {/* <p><a href="#">This is a link</a></p> */}
+//         </div>
+//         <div className="card-reveal" style={{ opacity: "0.5"}}>
+//           <span className="card-title grey-text text-darken-4" style={{ fontSize: "16pt" }}>Product Description:<i className="material-icons right">close</i></span>
+//           <p>{props.description}</p>
+//         </div>
+//       </div>
+//       <label htmlFor="spinner">Quantity:</label><input id="spinner" type="number" min="1" max="5"/>
+//       {props.children}
+//     </div>
+//   )
+// }
+
+// export default Card;

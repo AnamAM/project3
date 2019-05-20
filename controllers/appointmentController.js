@@ -29,6 +29,36 @@ module.exports = {
       // console.log()
     });
 
+    // async..await is not allowed in global scope, must use a wrapper
+    async function main() {
+      const tokens = await oauth2Client.refreshAccessToken()
+      const accessToken = tokens.credentials.access_token
+
+      const smtpTransport = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          type: "OAuth2",
+          user: "oasali786@gmail.com",
+          clientId: process.env.client_id,
+          clientSecret: process.env.client_secret,
+          refreshToken: process.env.refresh_token,
+          accessToken: accessToken
+        }
+      });
+      const mailOptions = {
+        from: "oasali786@gmail.com",
+        to: req.body.email,
+        subject: "Confirmation Email",
+        generateTextFromHTML: true,
+        html: "<h3>Your service has been scheduled for " + req.body.date + " at " + req.body.time + "! We'll be looking forward to seeing you soon.</h3><p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have any questions regarding your service appointment, email us!<p>"
+      };
+      smtpTransport.sendMail(mailOptions, (error, response) => {
+        error ? console.log(error) : console.log(response);
+        smtpTransport.close();
+      });
+
+    }
+    main().catch(console.error);
   },
   joining: function(req, res) {
     // Create a new service and pass the req.body to the entry
