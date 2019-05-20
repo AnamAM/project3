@@ -47,3 +47,12 @@ export function InputBox(props) {
 
         )
 }
+export function CardButton(props) {
+    return (
+        <button {...props} className="waves-effect waves-light btn-small button"  style={{ width: 140, marginTop: "90px", marginLeft: "130px"}}>
+        {props.children}
+        </button>
+
+        )
+}
+

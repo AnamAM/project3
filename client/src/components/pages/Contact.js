@@ -44,45 +44,46 @@ class Contact extends Component {
         subject: this.state.subject,
         message: this.state.message
       })
-      .then(res => this.loadContacts())
-      .catch(err => console.log(err));
+        .then(res => this.loadContacts())
+        .catch(err => console.log(err));
     }
   };
 
   render() {
     return (
       <div>
-      <Container fluid>
-        <h1 style={{textAlign: "center", color: "white"}}>Contact Us!</h1>
-        <Input style={{ width: "30%" }}
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={this.state.name}
-          onChange={this.handleInputChange}
-        />
-        <Input style={{ width: "30%" }}
-          type="text"
-          placeholder="Email"
-          name="email"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-        />
-        <Input style={{ width: "30%" }}
-          type="text"
-          placeholder="Subject"
-          name="subject"
-          value={this.state.subject}
-          onChange={this.handleInputChange}
-        />
-        <Input style={{ width: "30%" }}
-          type="text"
-          placeholder="Message"
-          name="message"
-          value={this.state.message}
-          onChange={this.handleInputChange}
-        />
-        <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Send Email</button>
+        <Container fluid>
+          <h1 style={{ textAlign: "center", color: "white", fontFamily: 'Roboto Condensed, sans-serif', letterSpacing: ".1em", fontSize: "44pt",  textTransform: "uppercase" }}>
+            Contact Us</h1>
+          <Input style={{ width: "30%" }}
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+          />
+          <Input style={{ width: "30%" }}
+            type="text"
+            placeholder="Email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+          />
+          <Input style={{ width: "30%" }}
+            type="text"
+            placeholder="Subject"
+            name="subject"
+            value={this.state.subject}
+            onChange={this.handleInputChange}
+          />
+          <Input style={{ width: "30%" }}
+            type="text"
+            placeholder="Message"
+            name="message"
+            value={this.state.message}
+            onChange={this.handleInputChange}
+          />
+          <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Send Email</button>
         </Container>
       </div>
     );
