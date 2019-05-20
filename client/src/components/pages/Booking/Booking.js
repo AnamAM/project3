@@ -7,6 +7,7 @@ import servicesAPI from '../../../utils/servicesAPI';
 // import { List, ListItem } from "../components/List";
 import { Input,FormBtn } from "../../../components/Form";
 import M from 'materialize-css';
+import Title from "../../Title";
 import { Container, Col, Row } from "../../Grid";
 import "./style.css";
 
@@ -97,20 +98,20 @@ class Booking extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.vehicleMake && this.state.vehicleModel) {
-      this.props.setCart(1)
-      // appointmentAPI.saveAppointment({
-      //   firstName: this.state.firstName,
-      //   lastName: this.state.lastName,
-      //   email: this.state.email,
-      //   vehicleMake: this.state.vehicleMake,
-      //   vehicleColor: this.state.vehicleColor,
-      //   vehicleModel: this.state.vehicleModel,
-      //   services: this.state.currentServiceId,
-      //   date: this.state.date,
-      //   time: this.state.time
-      // })
-      //   .then(res => this.loadAppointment())
-      //   .catch(err => console.log(err));
+      // this.props.setCart(9)
+      appointmentAPI.saveAppointment({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        vehicleMake: this.state.vehicleMake,
+        vehicleColor: this.state.vehicleColor,
+        vehicleModel: this.state.vehicleModel,
+        services: this.state.currentServiceId,
+        date: this.state.date,
+        time: this.state.time
+      })
+        .then(res => this.loadAppointment())
+        .catch(err => console.log(err));
     }
   };
   // handleFormSubmit = event => {
@@ -129,12 +130,11 @@ class Booking extends Component {
     })
     return (
       <div>
-        
+        <Title name="Book" title="A Service" />
         <form>
         <Container fluid>
         <Row>
         <Col size="md-12">
-        <h1>Book a Service! [{this.props.cart.toString()}]</h1>
 
         <Row>
         <Col size="sm-4">
@@ -234,10 +234,11 @@ class Booking extends Component {
           <Col size="md-6">
             
           <FormBtn
-            disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
+            // disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
             onClick={this.handleFormSubmit}
           >
-            Schedule Service
+            Schedule Service {' '}
+            <i className="fas fa-calendar-check"></i>
               </FormBtn>
           </Col>
           </Col>

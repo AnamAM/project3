@@ -45,7 +45,7 @@ export default withAuth(class Staff extends Component {
 
         return (
             <div className="jumbotron" style={{ color: "black" }}>
-                <h1 className="display-4">OAS Portal</h1>
+                <h1 className="display-4" style={{ fontFamily: "Oswald", letterSpacing: ".2em"}}>OAS Portal</h1>
                 {mainContent}
             </div>
         );

@@ -6,19 +6,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark black">
       <div>
-      {/* <Link className="navbar-brand" to="/">
-        OAS
-      </Link> */}
         <ul className="navbar-nav" id="nav-mobile" >
-        {/* this className could go in this ul tag above... className="right hide-on-med-and-down" */}
-        {/* <li className="nav-item nav">
-            <Link 
-              to="/"
-              className= {window.location.pathname === "/home" ? "nav-link active" : "nav-link light"} 
-              >
-              OAS
-            </Link>
-          </li> */}
           <li className="nav-item nav">
             <Link
               to="/admin"
@@ -43,11 +31,7 @@ function Navbar() {
           
               to="/"
               style={{ fontSize: "18px"}}
-              className={ 
-                window.location.pathname === "/" || window.location.pathname === "/home"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
+              className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
             >
               HOME
             </Link>
@@ -91,7 +75,6 @@ function Navbar() {
             >
               CART
             </Link>
-          
           </li>
          {/* <i className="material-icons cart">shopping_cart</i> */}
         </ul>

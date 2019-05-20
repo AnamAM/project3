@@ -46,9 +46,9 @@ module.exports = {
           auth: {
             type: "OAuth2",
             user: "oasali786@gmail.com",
-            clientId: "388348640921-r8cbda2ctb016pl061e8naqmpqtoe75g.apps.googleusercontent.com",
-            clientSecret: "0iZRT-MLbtcui5ZVfms8JWCa",
-            refreshToken: "1/gROHkp84IbxHzNxCtum59LZdoWQLc9H0-P01H0_PUwA",
+            clientId: process.env.client_id,
+            clientSecret: process.env.client_secret,
+            refreshToken: process.env.refresh_token,
             accessToken: accessToken
           }
         });

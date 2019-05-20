@@ -23,22 +23,24 @@ function Card(props) {
         </div>
       </div> */}
 
-      <Row>
+      
       <div id="f1_container">
-        <div id="f1_card" className="shadow">
-          <div className="front face">
-            <img className="activator" alt={props.name} src={props.image} />
+          <div id="f1_card" className="shadow">
+            <div className="front face">
+              <img className="activator" alt={props.name} src={props.image} />
+              <br></br>
+            </div>
+            <div className="back face center">
+              <p>{props.description}</p>
+            </div>
           </div>
-          <div className="back face center">
-            <p>{props.description}</p>
-          </div>
+          <p style={{ fontSize: "18pt", textAlign: "center", marginTop: "5px"}}>{props.name}</p>
+          <p style={{ textAlign: "center", fontSize: "16pt", marginBottom: "20px" }}>{`$${props.price}`}</p>
+          <br></br>
+
+          {/* <button className="waves-effect waves-light btn-small button" style={{ marginTop: "2px", marginLeft: "90px"}}>ADD TO CART</button> */}
         </div>
-        <br></br>
-            <p style={{ textAlign: "center", fontSize: "18pt"}}>{`$${props.price}`}</p>
-            
-            <button className="waves-effect waves-light btn-small button" style={{ marginTop: "2px", marginLeft: "90px"}}>ADD TO CART</button>
-      </div>
-      </Row>
+      
 
 
 

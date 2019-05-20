@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +30,30 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+:root {
+  --mainBlue: #2a2a2a;
+  --lightBlue: #009ffd;
+  --mainWhite: #f3f3f3;
+  --mainBlack: #000000;
+  --mainDark: #232523;
+  --mainYellow: #ffa400;
+  --mainTeal: #008080;
+}
+
+body {
+  font-family: "Oswald", sans-serif !important;
+  background: var(--mainBlack);
+  color: var(--mainWhite) !important;
+}
+
+.text-title {
+  font-family: "Roboto Condensed";
+  letter-spacing: .3rem;
+  /* text-transform: uppercase; */
+}
+
+.text-white {
+  color: var(--mainTeal);
 }

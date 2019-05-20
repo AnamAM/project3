@@ -56,9 +56,9 @@ module.exports = {
         auth: {
           type: "OAuth2",
           user: "oasali786@gmail.com",
-          clientId: "388348640921-r8cbda2ctb016pl061e8naqmpqtoe75g.apps.googleusercontent.com",
-          clientSecret: "0iZRT-MLbtcui5ZVfms8JWCa",
-          refreshToken: "1/gROHkp84IbxHzNxCtum59LZdoWQLc9H0-P01H0_PUwA",
+          clientId: process.env.client_id,
+          clientSecret: process.env.client_secret,
+          refreshToken: process.env.refresh_token,
           accessToken: accessToken
         }
       });
@@ -67,7 +67,7 @@ module.exports = {
         to: req.body.email,
         subject: "Confirmation Email",
         generateTextFromHTML: true,
-        html: "<h3>Your appointment is scheduled for " + req.body.date + " at " + req.body.time + " AM! We'll be looking forward to seeing you soon. Thank you for your service!</h3><p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have any questions regarding your appointment, please give us a call at 1 (800)-HAS-LIFE.<p>"
+        html: "<h3>Your service has been scheduled for " + req.body.date + " at " + req.body.time + "! We'll be looking forward to seeing you soon.</h3><p>Please do not reply to this message. Replies to this message are routed to an unmonitored mailbox. If you have any questions regarding your service appointment, email us!<p>"
       };
       smtpTransport.sendMail(mailOptions, (error, response) => {
         error ? console.log(error) : console.log(response);
