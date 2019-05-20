@@ -11,7 +11,7 @@ import Staff from "./components/pages/Staff";
 import Login from "./components/Auth/Login";
 import Admin from "./components/pages/Admin";
 import Details from "./components/pages/Details";
-import Default from "./components/pages/Default";
+// import Default from "./components/pages/Default";
 import Modal from "./components/Modal";
 
 function onAuthRequired({ history }) {
@@ -36,7 +36,7 @@ class App extends Component {
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/cart" component={Cart} />
             <SecureRoute exact path="/staff" component={Staff} />
-            <Route component={Default} />
+            {/* <Route component={Default} /> */}
             </Switch>
             <Modal />
             <Route path='/login' render={() => <Login baseUrl='https://dev-617186.okta.com' />} />

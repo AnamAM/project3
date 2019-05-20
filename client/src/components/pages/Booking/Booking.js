@@ -238,7 +238,7 @@ class Booking extends Component {
             onClick={this.handleFormSubmit}
           >
             Schedule Service {' '}
-            <i class="fas fa-calendar-check"></i>
+            <i className="fas fa-calendar-check"></i>
               </FormBtn>
           </Col>
           </Col>

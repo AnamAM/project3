@@ -1,22 +1,12 @@
-import React, { Component } from "react";
-import './style.css';
-// import Parallax from "../../Parallax";
-import M from 'materialize-css';
+import React from "react";
+import Slider from "../../Slider";
 
-class Home extends Component {
-  
-  componentDidMount() {
-    // M.FormSelect.init(document.querySelectorAll('select'));
-    M.AutoInit();
-  }
-
-  render() {
-    return (
-      <div>
-        Design this page.
-        </div>
-    );
-  }
+function Home() {
+  return (
+    <div>
+    <Slider />
+    </div>
+  )
 }
 
 export default Home;
