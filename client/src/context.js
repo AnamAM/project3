@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { storeProducts, detailProduct } from "../src/data";
-import productsAPI from "../src/utils/productsAPI";
+// import productsAPI from "../src/utils/productsAPI";
+
 const ProductContext = React.createContext();
 // Provider 
 // Consumer 
@@ -14,7 +15,7 @@ class ProductProvider extends Component {
     modalOpen: false,
     modalProduct: detailProduct,
     subTotal: 0,
-    tax: 0,
+    shiphandle: 0,
     total: 0
   };
 
@@ -100,6 +101,108 @@ class ProductProvider extends Component {
     })
   }
 
+  increment = id => {
+    // console.log("increment method works");
+
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count + 1;
+    product.total = product.count * product.price;
+    this.setState(() => {
+      return {
+        cart: [...tempCart]
+      };
+    }, this.addTotals);
+  };
+
+  decrement = id => {
+    // console.log("decrement method works")
+    
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find(item => {
+      return item.id === id;
+    });
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count - 1;
+    if (product.count === 0) {
+      this.removeItem(id);
+    } else {
+      product.total = product.count * product.price;
+      this.setState(() => {
+        return { cart: [...tempCart] };
+      }, this.addTotals);
+    }
+  };
+
+    getTotals = () => {
+      let subTotal = 0;
+      this.state.cart.map(item => (subTotal += item.total));
+      const tempShipHandle = subTotal * 0.1;
+      const shiphandle = parseFloat(tempShipHandle.toFixed(2));
+      const total = subTotal + shiphandle;
+      return {
+        subTotal,
+        shiphandle,
+        total
+      };
+    };
+        addTotals = () => {
+          const totals = this.getTotals();
+          this.setState(
+            () => {
+              return {
+                subTotal: totals.subTotal,
+                shiphandle: totals.shiphandle,
+                total: totals.total
+              };
+            },
+            () => {
+              // console.log(this.state);
+            }
+          );
+        };
+        
+      
+
+  removeItem = id => {
+    let tempProducts = [...this.state.products];
+    let tempCart = [...this.state.cart];
+    const index = tempProducts.indexOf(this.getItem(id));
+    let removedProduct = tempProducts[index];
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+
+    tempCart = tempCart.filter(item => {
+      return item.id !== id;
+    });
+
+    this.setState(() => {
+      return {
+        cart: [...tempCart],
+        products: [...tempProducts]
+      };
+    }, this.addTotals);
+  };
+
+  clearCart = () => {
+    this.setState(
+      () => {
+        return { cart: [] };
+      },
+      () => {
+        this.setProducts();
+        this.addTotals();
+      }
+    );
+  };
+
+
   render() {
     console.log(this.state.products);
     console.log(this.state.detailProduct);
@@ -112,7 +215,11 @@ class ProductProvider extends Component {
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
           openModal: this.openModal,
-          closeModal: this.closeModal
+          closeModal: this.closeModal,
+          increment: this.increment,
+          decrement: this.decrement,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart
         }}
         >
         {this.props.children}

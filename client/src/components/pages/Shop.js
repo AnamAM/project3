@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Product from "../Product";
-import Title from "../../Title";
-import { ProductConsumer } from "../../../context";
+import Product from "./Product";
+import Title from "../Title";
+import { ProductConsumer } from "../../context";
 
 export default class Shop extends Component {
 
@@ -11,7 +11,7 @@ export default class Shop extends Component {
       <React.Fragment>
         <div className="py-5">
           <div className="container">
-            <Title name="SHOP" title="OUR PRODUCTS" style={{ color: "white" }} />
+            <Title name="SHOP" title="OUR PRODUCTS" />
             <div className="row">
               <ProductConsumer>
                 {/* callback function to return the value thats in value prop in context */}

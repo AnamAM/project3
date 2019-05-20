@@ -7,6 +7,7 @@ import servicesAPI from '../../../utils/servicesAPI';
 // import { List, ListItem } from "../components/List";
 import { Input,FormBtn } from "../../../components/Form";
 import M from 'materialize-css';
+import Title from "../../Title";
 import { Container, Col, Row } from "../../Grid";
 import "./style.css";
 
@@ -129,12 +130,11 @@ class Booking extends Component {
     })
     return (
       <div>
-        
+        <Title name="Book" title="A Service" />
         <form>
         <Container fluid>
         <Row>
         <Col size="md-12">
-        <h1  style={{ textAlign: "center", color: "white", fontFamily: 'Oswald, sans-serif', letterSpacing: ".2em", fontSize: "44pt",  textTransform: "uppercase" }}>Book a Service</h1>
 
         <Row>
         <Col size="sm-4">
@@ -237,7 +237,8 @@ class Booking extends Component {
             // disabled={!(this.state.vehicleMake && this.state.vehicleModel)}
             onClick={this.handleFormSubmit}
           >
-            Schedule Service
+            Schedule Service {' '}
+            <i class="fas fa-calendar-check"></i>
               </FormBtn>
           </Col>
           </Col>

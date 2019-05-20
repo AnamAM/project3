@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ProductConsumer } from "../../context";
-import { ButtonContainer } from "../Button";
 import { Link } from "react-router-dom";
 
 
@@ -13,7 +12,7 @@ export default class Details extends Component {
             id,
             company,
             img,
-            info,
+            description,
             price,
             name,
             inCart
@@ -30,9 +29,9 @@ export default class Details extends Component {
               {/* end of title */}
               <div className="row">
                 <div className="col-10 mx-auto col-md-6 my-3">
-                  <img src={img} className="img-fluid" alt="" />
+                  <img src={img} className="img-fluid" alt="products" />
                 </div>
-                {/* prdoduct info */}
+                {/* product description */}
                 <div className="col-10 mx-auto col-md-6 my-3 text-capitalize text-light">
                   <h1 style={{ fontFamily: "Oswald", letterSpacing: ".2em" }}>{name}</h1>
                   <h4 className="text-title text-uppercase text-muted mt-3 mb-2">
@@ -47,7 +46,7 @@ export default class Details extends Component {
                   <p style={{ fontFamily: "Roboto Condensed", letterSpacing: ".1em", fontSize: "22pt" }}className=" mt-4 mb-1 text-muted">
                     Description: 
                   </p>
-                  <p className="text-muted lead" style={{ fontFamily: "News Cycle", letterSpacing: ".1em" }}>{info}</p>
+                  <p className="text-muted" style={{ fontFamily: "News Cycle", letterSpacing: ".1em" }}>{description}</p>
                   {/* buttons */}
                   <div>
                     <Link to="/shop">

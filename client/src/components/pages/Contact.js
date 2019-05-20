@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input } from "../Form";
 import { Container } from "../Grid";
+import Title from "../Title";
 import contactAPI from "../../utils/contactAPI";
 
 class Contact extends Component {
@@ -53,37 +54,45 @@ class Contact extends Component {
     return (
       <div>
         <Container fluid>
-          <h1 style={{ textAlign: "center", color: "white", fontFamily: 'Oswald, sans-serif', letterSpacing: ".2em", fontSize: "44pt",  textTransform: "uppercase" }}>
-            Contact Us</h1>
-          <Input style={{ width: "30%" }}
+        <div className="col-10 mx-auto col-md-8 my-3">
+        <Title name="Contact" title="Us"  />
+          <Input style={{ width: "50%" }}
             type="text"
             placeholder="Name"
             name="name"
             value={this.state.name}
             onChange={this.handleInputChange}
           />
-          <Input style={{ width: "30%" }}
+          <br></br>
+          <Input style={{ width: "50%" }}
             type="text"
             placeholder="Email"
             name="email"
             value={this.state.email}
             onChange={this.handleInputChange}
           />
-          <Input style={{ width: "30%" }}
+          <br></br>
+          <Input style={{ width: "50%" }}
             type="text"
             placeholder="Subject"
             name="subject"
             value={this.state.subject}
             onChange={this.handleInputChange}
           />
-          <Input style={{ width: "30%" }}
+          <br></br>
+          <Input style={{ width: "50%" }}
             type="text"
             placeholder="Message"
             name="message"
             value={this.state.message}
             onChange={this.handleInputChange}
           />
-          <button className="waves-effect waves-light btn-small" onClick={this.handleFormSubmit}>Send Email</button>
+          </div>
+          <br></br>
+          <button className="waves-effect waves-light btn-small" style={{ marginLeft: "39%" }} onClick={this.handleFormSubmit}>Send Email {' '}<i class="fas fa-paper-plane"></i></button>
+          <div className="col-10 mx-auto col-lg-2">
+          {/* add more contact stuff */}
+          </div>
         </Container>
       </div>
     );
