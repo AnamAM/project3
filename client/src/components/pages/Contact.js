@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Input } from "../Form";
-import { Container } from "../Grid";
+// import { Container } from "../Grid";
 import Title from "../Title";
 import contactAPI from "../../utils/contactAPI";
 
