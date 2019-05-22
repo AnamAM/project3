@@ -56,7 +56,7 @@ function Navbar() {
               SHOP
             </Link>
           </li>
-          <li className="nav-item nav">
+          {/* <li className="nav-item nav">
             <Link
           
               to="/contact"
@@ -65,7 +65,7 @@ function Navbar() {
             >
               CONTACT
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item nav">
             <Link
           

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../../context";
+import { ProductConsumer } from "../../../context";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 
 export default class Details extends Component {
@@ -50,7 +51,7 @@ export default class Details extends Component {
                   {/* buttons */}
                   <div>
                     <Link to="/shop">
-                      <button className="waves-effect waves-light btn-small">BACK TO PRODUCTS</button>
+                      <button className="waves-light btn-small">BACK TO PRODUCTS</button>
                     </Link>
                     <button className="waves-effect waves-light btn-small" style={{ marginLeft: "20px"}}
                       cart

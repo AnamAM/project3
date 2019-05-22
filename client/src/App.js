@@ -6,13 +6,13 @@ import Home from "./components/pages/Home/Home";
 import Booking from "./components/pages/Booking/Booking";
 import Shop from "./components/pages/Shop";
 import Cart from "./components/pages/Cart";
-import Contact from "./components/pages/Contact";
+// import Contact from "./components/pages/Contact";
 import Staff from "./components/pages/Staff";
 import Login from "./components/Auth/Login";
 import Admin from "./components/pages/Admin";
-import Details from "./components/pages/Details";
+import Details from "./components/pages/Details/Details";
 // import Default from "./components/pages/Default";
-import Modal from "./components/Modal";
+import Modal from "./components/Modal/";
 
 function onAuthRequired({ history }) {
   history.push("/login");
@@ -32,7 +32,7 @@ class App extends Component {
             <Route exact path="/shop" component={Shop} />
             <Route exact path="/details" component={Details} />
             <Route exact path="/booking" component={Booking} />
-            <Route exact path="/contact" component={Contact} />
+            {/* <Route exact path="/contact" component={Contact} /> */}
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/cart" component={Cart} />
             <SecureRoute exact path="/staff" component={Staff} />

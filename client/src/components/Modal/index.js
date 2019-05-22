@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { ProductConsumer } from "../../context";
 import { Link } from "react-router-dom";
+import "./style.css"; 
 
 
 export default class Modal extends Component {
